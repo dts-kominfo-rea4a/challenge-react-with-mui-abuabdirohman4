@@ -26,7 +26,7 @@ const ContactForm = ({ fnAddContact }) => {
   const inputOnChangeHandler = (event) => {
     setNewContact({ ...newContact, [event.target.name]: event.target.value });
   };
-  
+
   const formOnSubmitHandler = (event) => {
     event.preventDefault();
     fnAddContact(newContact);
@@ -42,8 +42,6 @@ const ContactForm = ({ fnAddContact }) => {
     <Card sx={{ bgcolor: "#F3F1EB", width: "85%" }}>
       <Box
         component="form"
-        noValidate
-        autoComplete="off"
         onSubmit={formOnSubmitHandler}
       >
         <CardContent sx={{ "& > :not(style)": { m: 1, width: "97%", pb: 0 } }}>
@@ -65,7 +63,6 @@ const ContactForm = ({ fnAddContact }) => {
             id="filled-basic"
             label="Phone"
             variant="filled"
-            type="number"
           />
           <TextField
             required
