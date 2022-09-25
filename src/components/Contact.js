@@ -17,27 +17,33 @@ import React from "react";
 const Contact = ({ data }) => {
   // Contact berisi foto, nama, telepon, dan email
   return (
-    <List sx={{ width: "75%", bgcolor: "#DBF6F0", ml: 5 }}>
+    <>
       {data.map((data) => (
-        <>
-          <ListItem alignItems="flex-start" sx={{pt: 0, pb: 1}}>
+        <List sx={{ width: "75%", bgcolor: "#DBF6F0", ml: 5 }} key={data.phone}>
+          <ListItem alignItems="flex-start" sx={{ pt: 0, pb: 1 }}>
             <ListItemAvatar>
-              <Avatar alt={data.name} src={data.photo} sx={{ width: 83, height: 83, mr: 5 }} />
+              <Avatar
+                alt={data.name}
+                src={data.photo}
+                sx={{ width: 83, height: 83, mr: 5 }}
+              />
             </ListItemAvatar>
             <ListItemText
               primary={data.name}
               secondary={
-                <React.Fragment>
-                  <Typography component="div">{data.phone}</Typography>
-                  <Typography component="div">{data.email}</Typography>
-                </React.Fragment>
+                <>
+                  <Typography component="span" sx={{ display: "block" }}>
+                    {data.phone}
+                  </Typography>
+                  <Typography component="span">{data.email}</Typography>
+                </>
               }
             />
           </ListItem>
           <Divider component="li" />
-        </>
+        </List>
       ))}
-    </List>
+    </>
   );
 };
 

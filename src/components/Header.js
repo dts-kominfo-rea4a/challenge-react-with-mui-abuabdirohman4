@@ -10,11 +10,11 @@ import React from "react";
 const Header = () => {
   return (
     <>
-      <Typography variant="h3" sx={{ mt: 2, mb: 3 }}>
+      <Typography variant="h3" sx={{ mt: 2, mb: 3 }}  component={'h3'}>
         Call a Friend
       </Typography>
       <Box sx={{borderBottom: 1, lineHeight: 0}}>
-        <Typography variant="subtitle" sx={{bgcolor: '#F0F8FF', px : 1, py: 0}}>Your friendly contact app</Typography>
+        <Typography component={'span'} variant="" sx={{bgcolor: '#F0F8FF', px : 1, py: 0}}>Your friendly contact app</Typography>
       </Box>
     </>
   );

@@ -27,14 +27,14 @@ const ContactForm = () => {
           noValidate
           autoComplete="off"
         >
-          <TextField id="outlined-basic" label="Outlined" variant="outlined" />
-          <TextField id="filled-basic" label="Filled" variant="filled" />
-          <TextField id="outlined-basic" label="Outlined" variant="outlined" />
-          <TextField id="filled-basic" label="Filled" variant="filled" />
+          <TextField required autoFocus id="filled-basic" label="Name" variant="filled" defaultValue="Orang"/>
+          <TextField required id="filled-basic" type="number" label="Phone" variant="filled" defaultValue="087771711717"/>
+          <TextField required id="filled-basic" label="Email" variant="filled" defaultValue="orang@orang.com"/>
+          <TextField required id="filled-basic" label="Photo URL" variant="filled" defaultValue="http://placekitten.com/100"/>
         </Box>
       </CardContent>
       <CardActions>
-        <Button size="large" sx={{ color: "#2F7C32" }}>
+        <Button type="submit" size="large" sx={{ color: "#2F7C32" }}>
           ADD NEW
         </Button>
       </CardActions>
