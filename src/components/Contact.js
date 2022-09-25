@@ -16,34 +16,31 @@ import React from "react";
 // atau langsung tambahkan dengan sx={{}}
 const Contact = ({ data }) => {
   // Contact berisi foto, nama, telepon, dan email
+  const { photo, name, phone, email } = data;
   return (
-    <>
-      {data.map((data) => (
-        <List sx={{ width: "75%", bgcolor: "#DBF6F0", ml: 5 }} key={data.phone}>
-          <ListItem alignItems="flex-start" sx={{ pt: 0, pb: 1 }}>
-            <ListItemAvatar>
-              <Avatar
-                alt={data.name}
-                src={data.photo}
-                sx={{ width: 83, height: 83, mr: 5 }}
-              />
-            </ListItemAvatar>
-            <ListItemText
-              primary={data.name}
-              secondary={
-                <>
-                  <Typography component="span" sx={{ display: "block" }}>
-                    {data.phone}
-                  </Typography>
-                  <Typography component="span">{data.email}</Typography>
-                </>
-              }
-            />
-          </ListItem>
-          <Divider component="li" />
-        </List>
-      ))}
-    </>
+    <List sx={{ width: "75%", bgcolor: "#DBF6F0", ml: 5 }} key={data.phone}>
+      <ListItem alignItems="flex-start" sx={{ pt: 0, pb: 1 }}>
+        <ListItemAvatar>
+          <Avatar
+            alt={name}
+            src={photo}
+            sx={{ width: 83, height: 83, mr: 5 }}
+          />
+        </ListItemAvatar>
+        <ListItemText
+          primary={name}
+          secondary={
+            <>
+              <Typography component="span" sx={{ display: "block" }}>
+                {phone}
+              </Typography>
+              <Typography component="span">{email}</Typography>
+            </>
+          }
+        />
+      </ListItem>
+      <Divider component="li" />
+    </List>
   );
 };
 
