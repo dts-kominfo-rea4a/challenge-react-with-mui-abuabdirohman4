@@ -15,12 +15,24 @@ const App = () => {
   // Masukkan contacts yang sudah didapat dalam JSON sebagai initial state
   // Buatlah handler untuk menambahkan kontak baru yang akan dikirim ke ContactForm
   const [contacts, setContacts] = useState(contactsJSON)
+  const addContact = (newContact) => {
+    const objContact = {
+      name: newContact.name,
+      phone: newContact.phone,
+      email: newContact.email,
+      photo: newContact.photo
+    }
+
+    const newContacts = [...contacts, objContact]
+    setContacts(newContacts)
+  }
+
   return (
     <div className="App">
       <Header />
       <Grid container sx={{ mt: 11, mx: 8 }}>
         <Grid item xs={5}>
-          <ContactForm />
+          <ContactForm fnAddContact={addContact} />
         </Grid>
         <Grid item xs={7}>
           <Contact data={contacts} />

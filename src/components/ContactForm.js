@@ -11,33 +11,54 @@ import {
   CardContent,
   TextField,
 } from "@mui/material";
+import { useState } from "react";
 
-const ContactForm = () => {
+const ContactForm = ({fnAddContact}) => {
   // Form berisi name, phone, email, dan photo url
   // Buatlah state newContact berupa objek sesuai dengan data yang ada
+  const [newContact, setNewContact] = useState({
+    name: "",
+    phone: "",
+    email: "",
+    photo: ""
+  })
+
+  const inputOnChangeHandler = (event) => {
+    setNewContact({ ...newContact, [event.target.name]: event.target.value})
+  }
+  let i = 0
+  const formOnSubmitHandler = (event) => {
+    event.preventDefault();
+    fnAddContact(newContact)
+    setNewContact({
+      name: "",
+      phone: "",
+      email: "",
+      photo: ""
+    })
+  }
 
   return (
     <Card sx={{ bgcolor: "#F3F1EB", width: "85%" }}>
-      <CardContent>
-        <Box
-          component="form"
-          sx={{
-            "& > :not(style)": { m: 1, width: "97%" },
-          }}
-          noValidate
-          autoComplete="off"
-        >
-          <TextField required autoFocus id="filled-basic" label="Name" variant="filled" defaultValue="Orang"/>
-          <TextField required id="filled-basic" type="number" label="Phone" variant="filled" defaultValue="087771711717"/>
-          <TextField required id="filled-basic" label="Email" variant="filled" defaultValue="orang@orang.com"/>
-          <TextField required id="filled-basic" label="Photo URL" variant="filled" defaultValue="http://placekitten.com/100"/>
-        </Box>
-      </CardContent>
-      <CardActions>
-        <Button type="submit" size="large" sx={{ color: "#2F7C32" }}>
-          ADD NEW
-        </Button>
-      </CardActions>
+      <Box
+        component="form"
+        
+        noValidate
+        autoComplete="off"
+        onSubmit={formOnSubmitHandler}
+      >
+        <CardContent sx={{"& > :not(style)": { m: 1, width: "97%", pb: 0 }}}>
+          <TextField required name="name" value={newContact.name} onChange={inputOnChangeHandler} id="filled-basic" label="Name" variant="filled" autoFocus/>
+          <TextField required name="phone" value={newContact.phone} onChange={inputOnChangeHandler} id="filled-basic" label="Phone" variant="filled" type="number"/>
+          <TextField required name="email" value={newContact.email} onChange={inputOnChangeHandler} id="filled-basic" label="Email" variant="filled" />
+          <TextField required name="photo" value={newContact.photo} onChange={inputOnChangeHandler} id="filled-basic" label="Photo URL" variant="filled" />
+        </CardContent>
+        <CardActions>
+          <Button type="submit" size="large" sx={{ color: "#2F7C32" }}>
+            ADD NEW
+          </Button>
+        </CardActions>
+      </Box>
     </Card>
   );
 };
