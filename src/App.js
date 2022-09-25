@@ -1,8 +1,9 @@
+import { Grid } from "@mui/material";
 import "./App.css";
 import Contact from "./components/Contact";
 import ContactForm from "./components/ContactForm";
-// import contactsJSON from "./data/contacts.json";
 import Header from "./components/Header";
+// import contactsJSON from "./data/contacts.json";
 
 // Uncomment untuk memuat daftar kontak
 // import contactsJSON from './data/contacts.json';
@@ -17,8 +18,18 @@ const App = () => {
   return (
     <div className="App">
       <Header />
-      <Contact data="{}"/>
-      {/* <ContactForm /> */}
+      <Grid container sx={{ mt: 11, mx: 8 }}>
+        <Grid xs={5}>
+          <ContactForm />
+        </Grid>
+        <Grid xs={7}>
+          <Contact data="{}" />
+          <Contact data="{}" />
+          <Contact data="{}" />
+          <Contact data="{}" />
+          <Contact data="{}" />
+        </Grid>
+      </Grid>
     </div>
   );
 };

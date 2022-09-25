@@ -17,22 +17,22 @@ import React from "react";
 const Contact = ({ data }) => {
   // Contact berisi foto, nama, telepon, dan email
   return (
-    <List sx={{ width: "100%", maxWidth: 360, bgcolor: "background.paper" }}>
-      <ListItem alignItems="flex-start">
+    <List sx={{ width: "75%", bgcolor: "#DBF6F0", ml: 5 }}>
+      <ListItem alignItems="flex-start" sx={{pt: 0, pb: 1}}>
         <ListItemAvatar>
-          <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
+          <Avatar alt="Monica" src="http://placekitten.com/500" sx={{ width: 83, height: 83, mr: 5 }} />
         </ListItemAvatar>
         <ListItemText
-          primary="Name"
+          primary="Monica"
           secondary={
             <React.Fragment>
-              <Typography component="div">No Handphone</Typography>
-              <Typography component="div">Email</Typography>
+              <Typography component="div">085367653673</Typography>
+              <Typography component="div">monica@email.com</Typography>
             </React.Fragment>
           }
         />
       </ListItem>
-      <Divider variant="inset" component="li" />
+      <Divider component="li" />
     </List>
   );
 };
